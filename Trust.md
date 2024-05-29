@@ -9,6 +9,7 @@ Enviamos un ping de un paquete para comprobar que la maquina esta activa y lista
 ```Linux
 Ping -c 1 172.17.0.2
 ```
+![Captura de pantalla 2024-05-29 001656](https://github.com/sav404/Hacked-Machines/assets/169759579/e0daf810-4ccc-4a61-884b-46a39631509c)
 
 Si entramos a la ip en el navegador podemos ver que en el puerto 80 hay un servidor apache2 configurado, el cual tiene la pagina por defecto que te entregan al activar el servidor.
 
@@ -40,6 +41,7 @@ Resultado de fuerza bruta:
 ```
 
 Accedémos a secret.php y encontramos una pagina la cual dice que no puede ser hackeada.
+![Captura de pantalla 2024-05-29 005453](https://github.com/sav404/Hacked-Machines/assets/169759579/49517ba4-d3b3-42d5-8bab-2aa524dde070)
 
 ---
 
@@ -49,6 +51,8 @@ hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 64
 
 ```
 Resultado de la fuerza bruta.
+![Captura de pantalla 2024-05-29 011225](https://github.com/sav404/Hacked-Machines/assets/169759579/d8a08fc8-caf0-4d21-9d14-6751d3d51d2f)
+
 
 Credenciales obtenidas ya tenemos acceso a el usuario mario el cual su contraseña es: chocolate.
 
@@ -60,8 +64,10 @@ ssh mario@172.17.0.2
 ```
 
 Nos saldra este aviso para que veamos si estamos intentando conectarnos al servidor correcto y no nos hayamos equivocado para entrar a uno malicioso, sale siempre al conectarse mediante ssh a una maquina por primera vez, puedes poner que yes y listo.
+![Captura de pantalla 2024-05-29 011029](https://github.com/sav404/Hacked-Machines/assets/169759579/7df6cad3-cb5e-4d81-a6a9-40db20697026)
 
 A continuacion nos pide la contraseña la cual como ya sabemos es **Chocolate**
+![Captura de pantalla 2024-05-29 011029](https://github.com/sav404/Hacked-Machines/assets/169759579/af1ccc43-65c7-4913-a446-8530e23aee6d)
 
 ---
 Con el siguiente comando una vez dentro del usuario mario vamos a ejecutar como root el ide: vim.
@@ -73,7 +79,9 @@ Ahora dentro del mismo vim presionamos control + z , lo cual nos abrira una pequ
 ```Vim
 :!/bin/bash
 ```
+![Captura de pantalla 2024-05-29 011927](https://github.com/sav404/Hacked-Machines/assets/169759579/2b2546c1-f2fe-4ab0-8a14-880d43c0175a)
 
 Gracias a eso, escalamos privilegios y obtuvimos el usuario con mayores privilegios root.
+![Captura de pantalla 2024-05-29 012304](https://github.com/sav404/Hacked-Machines/assets/169759579/c46bedb5-a9da-4fea-a523-07c2889e9766)
 
 ---
