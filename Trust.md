@@ -25,8 +25,8 @@ Resultado de el escaneo:
 ```Linux
 22/tcp open  ssh     syn-ack ttl 64 OpenSSH 9.2p1 Debian 2+deb12u2 (protocol 2.0)
 80/tcp open  http    syn-ack ttl 64 Apache httpd 2.4.57 ((Debian))
-
 ```
+
 ---
 
 Vamos a hacer fuerza bruta a la url de la pagina para poder encontrar directorios ocultos utilizando la herramienta GoBuster y una lista common de palabras. añadimos que busque extensionés html y php, para encontrar mas directorios posibles en el servidor web.
@@ -41,6 +41,7 @@ Resultado de fuerza bruta:
 ```
 
 Accedémos a secret.php y encontramos una pagina la cual dice que no puede ser hackeada.
+
 ![Captura de pantalla 2024-05-29 005453](https://github.com/sav404/Hacked-Machines/assets/169759579/49517ba4-d3b3-42d5-8bab-2aa524dde070)
 
 ---
@@ -51,6 +52,7 @@ hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 64
 
 ```
 Resultado de la fuerza bruta.
+
 ![Captura de pantalla 2024-05-29 011225](https://github.com/sav404/Hacked-Machines/assets/169759579/d8a08fc8-caf0-4d21-9d14-6751d3d51d2f)
 
 
@@ -64,9 +66,11 @@ ssh mario@172.17.0.2
 ```
 
 Nos saldra este aviso para que veamos si estamos intentando conectarnos al servidor correcto y no nos hayamos equivocado para entrar a uno malicioso, sale siempre al conectarse mediante ssh a una maquina por primera vez, puedes poner que yes y listo.
+
 ![Captura de pantalla 2024-05-29 011029](https://github.com/sav404/Hacked-Machines/assets/169759579/7df6cad3-cb5e-4d81-a6a9-40db20697026)
 
 A continuacion nos pide la contraseña la cual como ya sabemos es **Chocolate**
+
 ![Captura de pantalla 2024-05-29 011029](https://github.com/sav404/Hacked-Machines/assets/169759579/af1ccc43-65c7-4913-a446-8530e23aee6d)
 
 ---
@@ -82,6 +86,7 @@ Ahora dentro del mismo vim presionamos control + z , lo cual nos abrira una pequ
 ![Captura de pantalla 2024-05-29 011927](https://github.com/sav404/Hacked-Machines/assets/169759579/2b2546c1-f2fe-4ab0-8a14-880d43c0175a)
 
 Gracias a eso, escalamos privilegios y obtuvimos el usuario con mayores privilegios root.
+
 ![Captura de pantalla 2024-05-29 012304](https://github.com/sav404/Hacked-Machines/assets/169759579/c46bedb5-a9da-4fea-a523-07c2889e9766)
 
 ---
